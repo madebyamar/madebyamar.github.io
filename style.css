@@ -42,7 +42,6 @@ main {
 /* ---- Hero (full viewport) ---- */
 
 .hero {
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,20 +50,6 @@ main {
     min-height: 100vh;
     padding-top: 0;
     margin-bottom: 8rem;
-    background: url('images/background.jpg') center/cover no-repeat;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(12, 11, 10, 0.80);
-    z-index: 0;
-}
-
-.hero > * {
-    position: relative;
-    z-index: 1;
 }
 
 .hero-title {
