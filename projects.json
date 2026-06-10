@@ -11,14 +11,14 @@
       "cover": "images/projects/vinyl-spec.jpg"
     },
     {
-      "id": "wellness-brand",
-      "title": "Wellness Brand",
-      "date": "2024 – Present",
-      "industry": "Health & Wellness",
-      "category": "Klaviyo · Email Marketing",
-      "summary": "6 automated flows, 28% of total email revenue",
-      "details": "Designed and built the entire Klaviyo lifecycle from scratch — welcome series, abandoned cart, post-purchase, replenishment reminders, win-back, and loyalty. Segmented by purchase history and engagement. The flows now run hands-off and consistently deliver over a quarter of total email-attributed revenue.",
-      "cover": "images/projects/wellness-brand.jpg"
+      "id": "voices-of-resilience",
+      "title": "Voices of Resilience",
+      "date": "2025",
+      "industry": "Media & Community",
+      "category": "Brand Identity · Paid Media",
+      "summary": "Indigenous-led podcast showcasing the success and challenges of the Albertan Indigenous community",
+      "details": "Brand identity and paid media strategy for an Indigenous-led podcast amplifying the voices of Alberta's Indigenous community. Developed the visual identity, social presence, and launch campaign — balancing cultural authenticity with broad audience reach across Meta Ads and organic channels.",
+      "cover": "images/projects/voices-of-resilience.jpg"
     },
     {
       "id": "trail-appliances",
