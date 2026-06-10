@@ -67,6 +67,7 @@ main {
     font-size: clamp(1.5rem, 3.5vw, 3.5rem);
     font-weight: 700;
     letter-spacing: 0.04em;
+    text-transform: uppercase;
     color: transparent;
     -webkit-text-stroke: 1.5px var(--text);
     line-height: 1.2;
@@ -215,6 +216,7 @@ main {
     font-weight: 800;
     line-height: 1.05;
     letter-spacing: -0.03em;
+    text-transform: uppercase;
     color: var(--text);
 }
 
