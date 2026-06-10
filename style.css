@@ -4,12 +4,12 @@
    ============================================ */
 
 :root {
-    --bg: #ff9f0d;
-    --text: #1a1a1a;
-    --text-muted: #4a4a4a;
-    --text-dim: #6a6a6a;
-    --border: rgba(0, 0, 0, 0.12);
-    --accent: #8b4513;
+    --bg: #0c0b0a;
+    --text: #e8e4dd;
+    --text-muted: #8a867e;
+    --text-dim: #5c5852;
+    --border: #2a2723;
+    --accent: #d4a853;
 }
 
 *, *::before, *::after {
@@ -33,21 +33,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* ---- Canvas Background ---- */
-
-#bg-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
-}
-
 main {
-    position: relative;
-    z-index: 1;
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 4rem;
