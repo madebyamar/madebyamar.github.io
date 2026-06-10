@@ -1,7 +1,6 @@
 /* ============================================
    Amar Elkaz — Portfolio
-   Dark editorial, massive typography, minimal.
-   Inspired by Dion Pieters' design language.
+   Dark editorial, full-viewport hero, all sans.
    ============================================ */
 
 :root {
@@ -32,30 +31,32 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    min-height: 100vh;
 }
 
 main {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 3rem 4rem;
+    padding: 0 4rem;
 }
 
-/* ---- Hero ---- */
+/* ---- Hero (full viewport) ---- */
 
 .hero {
-    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    padding-top: 0;
     margin-bottom: 8rem;
 }
 
 .hero-title {
-    font-family: 'DM Serif Display', 'Georgia', serif;
     font-size: clamp(6rem, 15vw, 18rem);
-    font-weight: 400;
-    line-height: 0.85;
-    letter-spacing: -0.02em;
+    font-weight: 800;
+    line-height: 0.82;
+    letter-spacing: -0.03em;
     color: var(--text);
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     user-select: none;
 }
 
@@ -153,11 +154,10 @@ main {
 }
 
 .work-title {
-    font-family: 'DM Serif Display', 'Georgia', serif;
     font-size: clamp(2.5rem, 6vw, 5rem);
-    font-weight: 400;
+    font-weight: 800;
     line-height: 1.05;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     color: var(--text);
 }
 
@@ -236,7 +236,7 @@ main {
 /* ---- Footer ---- */
 
 footer {
-    padding-top: 1rem;
+    padding: 1rem 0 2rem;
 }
 
 footer p {
@@ -248,7 +248,7 @@ footer p {
 
 @media (max-width: 1024px) {
     main {
-        padding: 2rem 2rem;
+        padding: 0 2rem;
     }
 
     .hero-meta {
@@ -273,10 +273,11 @@ footer p {
 
 @media (max-width: 640px) {
     main {
-        padding: 1.5rem 1.25rem;
+        padding: 0 1.25rem;
     }
 
     .hero {
+        min-height: 100svh;
         margin-bottom: 4rem;
     }
 
