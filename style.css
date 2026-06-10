@@ -65,10 +65,11 @@ main {
 }
 
 .hero-subtitle {
-    font-size: clamp(1.5rem, 3.5vw, 3.5rem);
+    font-size: clamp(1.2rem, 2.8vw, 2.5rem);
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
+    white-space: nowrap;
     color: transparent;
     -webkit-text-stroke: 1.5px var(--text);
     line-height: 1.2;
@@ -84,6 +85,26 @@ main {
     padding-top: 1.5rem;
     border-top: 1px solid var(--border);
     width: 100%;
+}
+
+.hero-cta {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.8rem 2rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    text-decoration: none;
+    border: 1.5px solid var(--text);
+    border-radius: 2px;
+    transition: all 0.25s ease;
+}
+
+.hero-cta:hover {
+    background: var(--text);
+    color: var(--bg);
 }
 
 .meta-link {
