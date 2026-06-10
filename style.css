@@ -281,6 +281,26 @@ section h2 {
     gap: 2rem;
 }
 
+.social-links {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.social-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.15s;
+}
+
+.social-link:hover {
+    color: var(--accent);
+}
+
 .contact-item {
     display: flex;
     flex-direction: column;
@@ -313,9 +333,33 @@ footer {
     border-top: 1px solid var(--border);
 }
 
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
 footer p {
     color: var(--text-muted);
     font-size: 0.85rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.footer-social a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.15s;
+}
+
+.footer-social a:hover {
+    color: var(--accent);
 }
 
 /* ---- Responsive ---- */
