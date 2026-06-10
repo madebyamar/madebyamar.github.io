@@ -28,8 +28,16 @@
                     <p class="meta-line meta-sub">Red Deer → Calgary (Jul 2026)</p>
                 </div>
             </div>
-            <a href="files/Portfolio.pdf" class="hero-cta" download>See My Work</a>
+            <a href="files/Portfolio.pdf" class="hero-cta" onclick="openPdf(); return false;">See My Work</a>
         </header>
+
+        <div class="pdf-modal" id="pdf-modal">
+            <div class="pdf-modal-backdrop" onclick="closePdf()"></div>
+            <div class="pdf-modal-frame">
+                <button class="pdf-modal-close" onclick="closePdf()">&times;</button>
+                <iframe src="files/Portfolio.pdf" frameborder="0"></iframe>
+            </div>
+        </div>
 
         <section class="work" id="projects-container">
             <!-- Populated dynamically by projects.js -->
@@ -61,5 +69,18 @@
     </main>
 
     <script src="projects.js"></script>
+    <script>
+    function openPdf() {
+        document.getElementById('pdf-modal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closePdf() {
+        document.getElementById('pdf-modal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closePdf();
+    });
+    </script>
 </body>
 </html>
