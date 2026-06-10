@@ -411,6 +411,102 @@ main {
     font-style: italic;
 }
 
+/* ---- Contact Form ---- */
+
+.contact {
+    margin-bottom: 8rem;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.contact-heading {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 3rem;
+}
+
+.contact-form {
+    text-align: left;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-field {
+    margin-bottom: 1.5rem;
+}
+
+.form-field label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    margin-bottom: 0.5rem;
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--text);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    border-color: var(--text);
+}
+
+.form-field textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.contact-submit {
+    display: inline-block;
+    padding: 0.85rem 2.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    background: transparent;
+    border: 1.5px solid var(--text);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: 'Inter', -apple-system, sans-serif;
+}
+
+.contact-submit:hover {
+    background: var(--text);
+    color: var(--bg);
+}
+
+@media (max-width: 640px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
 /* ---- Connect ---- */
 
 .connect {
