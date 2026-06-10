@@ -124,115 +124,121 @@
         const ctx = canvas.getContext('2d');
 
         let W, H;
-        const lines = [];
-        const LINE_COUNT = 30;
-        const POINTS_PER_LINE = 120;
+        const SHAPES = 20;
+
+        // Shape types: circle, square, triangle, diamond
+        const types = ['circle', 'square', 'triangle', 'diamond'];
+        const shapes = [];
 
         function resize() {
             W = canvas.width = window.innerWidth;
             H = canvas.height = document.documentElement.scrollHeight;
         }
 
-        // --- Create swirling lines ---
-        // Each line is a chain of points that flow through a noise-like field
-        function createLine() {
-            const points = [];
-            const hue = 28 + Math.random() * 15;         // warm golds
-            const sat = 30 + Math.random() * 20;
-            const light = 18 + Math.random() * 12;       // dim, atmospheric
-            const speed = 0.3 + Math.random() * 0.6;
-            const amplitude = 0.5 + Math.random() * 0.8;
-            const phaseX = Math.random() * Math.PI * 2;
-            const phaseY = Math.random() * Math.PI * 2;
-            const freqX = 0.002 + Math.random() * 0.004;
-            const freqY = 0.003 + Math.random() * 0.005;
-
-            // Starting point — random position
-            let x = Math.random() * W;
-            let y = Math.random() * H;
-
-            for (let i = 0; i < POINTS_PER_LINE; i++) {
-                points.push({ x, y });
-
-                // Flow direction using sin/cos noise — creates swirls
-                const t = Date.now() * 0.0002 * speed;
-                const angle =
-                    Math.sin(x * freqX + phaseX + t) * Math.PI * amplitude +
-                    Math.cos(y * freqY + phaseY + t * 0.7) * Math.PI * amplitude;
-
-                x += Math.cos(angle) * 2.5;
-                y += Math.sin(angle) * 2.5;
-            }
-
-            return { points, hue, sat, light, speed, phaseX, phaseY, freqX, freqY };
+        function randomShape() {
+            const type = types[Math.floor(Math.random() * types.length)];
+            const size = 30 + Math.random() * 60;
+            const x = Math.random() * W;
+            const y = Math.random() * H;
+            const vx = (Math.random() - 0.5) * 1.5;
+            const vy = (Math.random() - 0.5) * 1.5;
+            const rotation = Math.random() * Math.PI * 2;
+            const rotSpeed = (Math.random() - 0.5) * 0.02;
+            // Semi-transparent white/cream shapes on orange bg
+            const alpha = 0.08 + Math.random() * 0.12;
+            return { type, size, x, y, vx, vy, rotation, rotSpeed, alpha };
         }
 
-        function initLines() {
-            lines.length = 0;
-            for (let i = 0; i < LINE_COUNT; i++) {
-                lines.push(createLine());
+        function initShapes() {
+            for (let i = 0; i < SHAPES; i++) {
+                shapes.push(randomShape());
             }
         }
 
-        function updateLine(line) {
-            const { speed, phaseX, phaseY, freqX, freqY } = line;
-            const t = Date.now() * 0.0002 * speed;
+        function drawShape(s) {
+            ctx.save();
+            ctx.translate(s.x, s.y);
+            ctx.rotate(s.rotation);
 
-            const points = line.points;
-            let x = points[0].x;
-            let y = points[0].y;
+            // Fill + stroke with same semitransparent white
+            const color = `rgba(255, 255, 255, ${s.alpha})`;
+            const strokeColor = `rgba(0, 0, 0, ${s.alpha * 0.5})`;
+            ctx.fillStyle = color;
+            ctx.strokeStyle = strokeColor;
+            ctx.lineWidth = 1.5;
 
-            for (let i = 0; i < points.length; i++) {
-                points[i].x = x;
-                points[i].y = y;
+            switch (s.type) {
+                case 'circle':
+                    ctx.beginPath();
+                    ctx.arc(0, 0, s.size / 2, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.stroke();
+                    break;
 
-                const angle =
-                    Math.sin(x * freqX + phaseX + t) * Math.PI * 1.2 +
-                    Math.cos(y * freqY + phaseY + t * 0.7) * Math.PI * 1.2;
+                case 'square':
+                    ctx.fillRect(-s.size / 2, -s.size / 2, s.size, s.size);
+                    ctx.strokeRect(-s.size / 2, -s.size / 2, s.size, s.size);
+                    break;
 
-                x += Math.cos(angle) * 2.5;
-                y += Math.sin(angle) * 2.5;
+                case 'triangle':
+                    ctx.beginPath();
+                    ctx.moveTo(0, -s.size / 2);
+                    ctx.lineTo(s.size / 2, s.size / 2);
+                    ctx.lineTo(-s.size / 2, s.size / 2);
+                    ctx.closePath();
+                    ctx.fill();
+                    ctx.stroke();
+                    break;
+
+                case 'diamond':
+                    ctx.beginPath();
+                    ctx.moveTo(0, -s.size / 2);
+                    ctx.lineTo(s.size / 2, 0);
+                    ctx.lineTo(0, s.size / 2);
+                    ctx.lineTo(-s.size / 2, 0);
+                    ctx.closePath();
+                    ctx.fill();
+                    ctx.stroke();
+                    break;
+            }
+
+            ctx.restore();
+        }
+
+        function update() {
+            for (const s of shapes) {
+                s.x += s.vx;
+                s.y += s.vy;
+                s.rotation += s.rotSpeed;
+
+                // Bounce off edges
+                if (s.x < s.size / 2 || s.x > W - s.size / 2) s.vx *= -1;
+                if (s.y < s.size / 2 || s.y > H - s.size / 2) s.vy *= -1;
+
+                // Clamp so they don't escape on resize
+                s.x = Math.max(s.size / 2, Math.min(W - s.size / 2, s.x));
+                s.y = Math.max(s.size / 2, Math.min(H - s.size / 2, s.y));
             }
         }
 
         function draw() {
             ctx.clearRect(0, 0, W, H);
 
-            for (const line of lines) {
-                updateLine(line);
-
-                const { points, hue, sat, light } = line;
-
-                ctx.beginPath();
-                ctx.moveTo(points[0].x, points[0].y);
-
-                // Draw smooth curve through points
-                for (let i = 1; i < points.length - 2; i++) {
-                    const xc = (points[i].x + points[i + 1].x) / 2;
-                    const yc = (points[i].y + points[i + 1].y) / 2;
-                    ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
-                }
-
-                // Final segment
-                const last = points[points.length - 1];
-                const prev = points[points.length - 2];
-                ctx.lineTo(last.x, last.y);
-
-                ctx.strokeStyle = `hsla(${hue}, ${sat}%, ${light}%, 0.5)`;
-                ctx.lineWidth = 0.6;
-                ctx.stroke();
+            for (const s of shapes) {
+                drawShape(s);
             }
         }
 
         function animate() {
             resize();
+            update();
             draw();
             requestAnimationFrame(animate);
         }
 
         window.addEventListener('resize', resize);
         resize();
-        initLines();
+        initShapes();
         animate();
     })();
     </script>

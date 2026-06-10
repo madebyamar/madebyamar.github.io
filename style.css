@@ -4,12 +4,12 @@
    ============================================ */
 
 :root {
-    --bg: #0c0b0a;
-    --text: #e8e4dd;
-    --text-muted: #8a867e;
-    --text-dim: #5c5852;
-    --border: #2a2723;
-    --accent: #d4a853;
+    --bg: #ff9f0d;
+    --text: #1a1a1a;
+    --text-muted: #4a4a4a;
+    --text-dim: #6a6a6a;
+    --border: rgba(0, 0, 0, 0.12);
+    --accent: #8b4513;
 }
 
 *, *::before, *::after {
