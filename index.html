@@ -31,11 +31,16 @@
             <a href="files/Portfolio.pdf" class="hero-cta" onclick="openPdf(); return false;">See My Work</a>
         </header>
 
-        <div class="pdf-modal" id="pdf-modal">
-            <div class="pdf-modal-backdrop" onclick="closePdf()"></div>
-            <div class="pdf-modal-frame">
-                <button class="pdf-modal-close" onclick="closePdf()">&times;</button>
-                <iframe src="files/Portfolio.pdf" frameborder="0"></iframe>
+        <div class="slide-deck" id="slide-deck">
+            <div class="slide-backdrop" onclick="closeDeck()"></div>
+            <div class="slide-viewer">
+                <button class="slide-close" onclick="closeDeck()">&times;</button>
+                <div class="slide-stage">
+                    <button class="slide-nav slide-prev" onclick="prevSlide()">←</button>
+                    <img id="slide-img" src="" alt="Slide" />
+                    <button class="slide-nav slide-next" onclick="nextSlide()">→</button>
+                </div>
+                <p class="slide-counter" id="slide-counter"></p>
             </div>
         </div>
 
@@ -70,16 +75,50 @@
 
     <script src="projects.js"></script>
     <script>
+    var slides = [
+        'images/slides/slide-01.jpg',
+        'images/slides/slide-02.jpg',
+        'images/slides/slide-03.jpg',
+        'images/slides/slide-04.jpg',
+        'images/slides/slide-05.jpg'
+    ];
+    var currentSlide = 0;
+    var slideImg = document.getElementById('slide-img');
+    var slideCounter = document.getElementById('slide-counter');
+    var deck = document.getElementById('slide-deck');
+
     function openPdf() {
-        document.getElementById('pdf-modal').classList.add('active');
+        currentSlide = 0;
+        showSlide();
+        deck.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
-    function closePdf() {
-        document.getElementById('pdf-modal').classList.remove('active');
+
+    function closeDeck() {
+        deck.classList.remove('active');
         document.body.style.overflow = '';
     }
+
+    function showSlide() {
+        slideImg.src = slides[currentSlide];
+        slideCounter.textContent = (currentSlide + 1) + ' / ' + slides.length;
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide();
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide();
+    }
+
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closePdf();
+        if (!deck.classList.contains('active')) return;
+        if (e.key === 'Escape') closeDeck();
+        if (e.key === 'ArrowRight') nextSlide();
+        if (e.key === 'ArrowLeft') prevSlide();
     });
     </script>
 </body>
