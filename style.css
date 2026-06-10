@@ -53,14 +53,14 @@ main {
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 7vw, 8rem);
+    font-size: clamp(4rem, 12vw, 18rem);
     font-weight: 800;
-    line-height: 1.0;
+    line-height: 0.82;
     letter-spacing: -0.03em;
     color: var(--text);
     margin-bottom: 2rem;
     user-select: none;
-    max-width: 100%;
+    white-space: nowrap;
 }
 
 .hero-meta {
