@@ -44,6 +44,8 @@ main {
 .hero {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     justify-content: center;
     min-height: 100vh;
     padding-top: 0;
@@ -62,21 +64,22 @@ main {
 }
 
 .hero-meta {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    gap: 2rem;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--border);
+    width: 100%;
 }
 
 .meta-link {
-    display: block;
+    display: inline-block;
     color: var(--text-muted);
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
-    line-height: 2;
+    margin: 0 0.75rem;
     transition: color 0.2s;
 }
 
@@ -94,11 +97,6 @@ main {
 .meta-sub {
     color: var(--text-muted);
     font-weight: 400;
-}
-
-.hero-meta-center, .hero-meta-right {
-    display: flex;
-    flex-direction: column;
 }
 
 /* ---- Work Section (dynamic projects) ---- */
@@ -330,14 +328,6 @@ footer p {
 @media (max-width: 1024px) {
     main {
         padding: 0 2rem;
-    }
-
-    .hero-meta {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .hero-meta-left {
-        display: none;
     }
 
     .project-row {
