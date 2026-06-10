@@ -11,16 +11,6 @@
       "cover": "images/projects/vinyl-spec.jpg"
     },
     {
-      "id": "dtc-luxury",
-      "title": "DTC Luxury Brand",
-      "date": "2024 – Present",
-      "industry": "Luxury",
-      "category": "Meta Ads · Ecommerce",
-      "summary": "3.2× ROAS, 40% lower CPA, $180K/mo revenue",
-      "details": "Full-funnel Meta Ads strategy for a high-end DTC brand. Built audience segments from scratch, tested 40+ creative variations, optimized for purchase conversions. Shifted spend from prospecting to retargeting as the pixel matured, cutting CPA by nearly half while scaling monthly revenue to $180K.",
-      "cover": "images/projects/dtc-luxury.jpg"
-    },
-    {
       "id": "wellness-brand",
       "title": "Wellness Brand",
       "date": "2024 – Present",
