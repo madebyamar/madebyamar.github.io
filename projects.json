@@ -1,6 +1,16 @@
 {
   "projects": [
     {
+      "id": "vinyl-spec",
+      "title": "Vinyl Spec",
+      "date": "2026",
+      "industry": "Automotive",
+      "category": "Brand Identity",
+      "summary": "Auto vinyl wrap and detailing mixed with street car culture",
+      "details": "Full brand identity for an automotive vinyl wrap and detailing shop rooted in street car culture. Developed the name, visual identity, social presence, and launch strategy — positioning the brand at the intersection of precision craftsmanship and car community energy.",
+      "cover": "images/projects/vinyl-spec.jpg"
+    },
+    {
       "id": "dtc-luxury",
       "title": "DTC Luxury Brand",
       "date": "2024 – Present",
