@@ -1,0 +1,54 @@
+{
+  "projects": [
+    {
+      "id": "dtc-luxury",
+      "title": "DTC Luxury Brand",
+      "date": "2024 – Present",
+      "industry": "Luxury",
+      "category": "Meta Ads · Ecommerce",
+      "summary": "3.2× ROAS, 40% lower CPA, $180K/mo revenue",
+      "details": "Full-funnel Meta Ads strategy for a high-end DTC brand. Built audience segments from scratch, tested 40+ creative variations, optimized for purchase conversions. Shifted spend from prospecting to retargeting as the pixel matured, cutting CPA by nearly half while scaling monthly revenue to $180K.",
+      "cover": "images/projects/dtc-luxury.jpg"
+    },
+    {
+      "id": "wellness-brand",
+      "title": "Wellness Brand",
+      "date": "2024 – Present",
+      "industry": "Health & Wellness",
+      "category": "Klaviyo · Email Marketing",
+      "summary": "6 automated flows, 28% of total email revenue",
+      "details": "Designed and built the entire Klaviyo lifecycle from scratch — welcome series, abandoned cart, post-purchase, replenishment reminders, win-back, and loyalty. Segmented by purchase history and engagement. The flows now run hands-off and consistently deliver over a quarter of total email-attributed revenue.",
+      "cover": "images/projects/wellness-brand.jpg"
+    },
+    {
+      "id": "trail-appliances",
+      "title": "Trail Appliances",
+      "date": "2021 – 2023",
+      "industry": "Retail",
+      "category": "SEO · Conversion Optimization",
+      "summary": "+62% organic traffic, +18% conversion rate",
+      "details": "In-house marketing role at one of Western Canada's largest appliance retailers. Owned email marketing end-to-end — planning, copywriting, layout, segmentation, and A/B testing — contributing to a 20% CTR lift. Also led CMS content updates, paid social creative, and acted as the bridge between social, copy, and dev teams. The SEO work focused on category page optimization and local search visibility across Alberta locations.",
+      "cover": "images/projects/trail-appliances.jpg"
+    },
+    {
+      "id": "fashion-label",
+      "title": "Fashion Label Launch",
+      "date": "2024",
+      "industry": "Fashion",
+      "category": "Meta Ads · DTC · Startup",
+      "summary": "$0 → $160K/mo, 2.8× ROAS, 6,500+ customers",
+      "details": "Zero-to-launch paid acquisition for a new fashion label. Developed the go-to-market audience strategy, wrote and briefed creative, built the testing framework, and scaled winning ads. Within 4 months the brand hit $160K/month in attributed revenue with a 2.8× blended ROAS and a customer base of 6,500+. Managed all creative iteration and budget allocation directly with the founder.",
+      "cover": "images/projects/fashion-label.jpg"
+    },
+    {
+      "id": "freelance-consulting",
+      "title": "10+ Brands",
+      "date": "2023 – Present",
+      "industry": "Multi-Industry",
+      "category": "Freelance Consulting",
+      "summary": "Paid media, email, SEO across luxury, lifestyle & ecommerce",
+      "details": "Independent consulting across 10+ retainer clients. Own the full relationship from discovery and strategy through execution, reporting, and retention. Services span Meta Ads management, Klaviyo and HubSpot lifecycle builds, landing page audits for search intent and on-page SEO, and conversion-focused copywriting. Primary strategic contact for every account — no handoffs, no account managers between me and the work.",
+      "cover": "images/projects/freelance-consulting.jpg"
+    }
+  ]
+}

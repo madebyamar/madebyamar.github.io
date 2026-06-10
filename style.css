@@ -101,7 +101,7 @@ main {
     flex-direction: column;
 }
 
-/* ---- Work Section ---- */
+/* ---- Work Section (dynamic projects) ---- */
 
 .work {
     margin-bottom: 8rem;
@@ -116,45 +116,92 @@ main {
     margin-bottom: 2rem;
 }
 
-.work-item {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
+.project-error {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.9rem;
 }
 
-.work-divider {
+/* ---- Project Card ---- */
+
+.project-card {
+    position: relative;
+}
+
+.project-divider {
     height: 1px;
     background: var(--border);
-    margin: 0;
-    transition: background 0.3s;
 }
 
-.work-item:hover .work-divider {
-    background: var(--accent);
+/* ---- Cover Image ---- */
+
+.project-cover {
+    width: 100%;
+    max-height: 520px;
+    overflow: hidden;
+    margin: 1.75rem 0;
+    border-radius: 4px;
+    background: #1a1816;
 }
 
-.work-divider-last {
-    background: var(--border);
+.project-cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    transition: transform 0.5s ease, opacity 0.4s ease;
 }
 
-.work-row {
+.project-card:hover .project-cover img {
+    transform: scale(1.03);
+    opacity: 0.92;
+}
+
+.project-cover-missing {
+    /* fallback when image 404s — subtle placeholder */
+    background: linear-gradient(135deg, #1a1816 0%, #211e1a 50%, #1a1816 100%);
+    min-height: 180px;
+}
+
+.project-cover-missing img {
+    opacity: 0;
+}
+
+/* ---- Project Row ---- */
+
+.project-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    padding: 1.25rem 0;
+    padding: 1.5rem 0;
+    cursor: pointer;
     transition: opacity 0.3s;
+    user-select: none;
 }
 
-.work-item:hover .work-row {
+.project-card:hover .project-row {
     opacity: 1;
 }
 
-.work:hover .work-item:not(:hover) .work-row {
-    opacity: 0.3;
+.project-card:not(.open) ~ .project-card:hover .project-row {
+    opacity: 1;
 }
 
-.work-title {
+/* Dim other rows when hovering one */
+.work:hover .project-card:not(:hover):not(.open) .project-row {
+    opacity: 0.35;
+}
+
+/* ---- Left Column ---- */
+
+.project-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.project-title {
     font-size: clamp(2.5rem, 6vw, 5rem);
     font-weight: 800;
     line-height: 1.05;
@@ -162,25 +209,58 @@ main {
     color: var(--text);
 }
 
-.work-info {
+.project-date {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-dim);
+}
+
+/* ---- Right Column ---- */
+
+.project-right {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 0.35rem;
 }
 
-.work-client {
+.project-tags {
     font-size: 0.85rem;
     font-weight: 500;
     color: var(--text-muted);
     letter-spacing: 0.04em;
 }
 
-.work-result {
+.project-summary {
     font-size: 1rem;
     font-weight: 400;
     color: var(--accent);
     line-height: 1.5;
+}
+
+/* ---- Expandable Details ---- */
+
+.project-details {
+    padding: 0 0 2rem 0;
+    animation: detailsIn 0.3s ease;
+}
+
+.project-details p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    max-width: 680px;
+}
+
+@keyframes detailsIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Open state indicator ---- */
+
+.project-card.open .project-divider:nth-child(2) {
+    background: var(--accent);
 }
 
 /* ---- About ---- */
@@ -260,12 +340,12 @@ footer p {
         display: none;
     }
 
-    .work-row {
+    .project-row {
         grid-template-columns: 1fr;
         gap: 0.5rem;
     }
 
-    .work-info {
+    .project-right {
         flex-direction: row;
         gap: 1rem;
         flex-wrap: wrap;
