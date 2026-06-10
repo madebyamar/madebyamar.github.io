@@ -57,6 +57,7 @@ main {
     font-weight: 800;
     line-height: 0.82;
     letter-spacing: -0.03em;
+    text-transform: uppercase;
     color: var(--text);
     margin-bottom: 0.75rem;
     user-select: none;
